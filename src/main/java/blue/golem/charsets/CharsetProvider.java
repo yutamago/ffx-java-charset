@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import blue.golem.charsets.xrosloader.XrosLoaderCharset;
+import blue.golem.charsets.xrosloader.FFXCharset;
 
 public class CharsetProvider extends java.nio.charset.spi.CharsetProvider {
 
-    static final String XROS_LOADER_CHARSET_NAME = "xros-loader";
+    public static final String FFX_CHARSET_NAME = "final-fantasy-x";
 
     Map<String, Charset> charsetMap = new HashMap<>();
 
     public CharsetProvider() {
         super();
         // Add charsets here
-        charsetMap.put(XROS_LOADER_CHARSET_NAME, new XrosLoaderCharset(XROS_LOADER_CHARSET_NAME, null));
+        charsetMap.put(FFX_CHARSET_NAME, new FFXCharset(FFX_CHARSET_NAME, null));
     }
 
     @Override

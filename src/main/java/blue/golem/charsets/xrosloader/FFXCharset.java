@@ -16,13 +16,17 @@ public class FFXCharset extends Charset {
 
     static {
         InputStream is = FFXCharset.class.getResourceAsStream("/ffx_en.tbl");
-        try (Scanner scanner = new Scanner(is)) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                int position = Integer.parseInt(line.substring(0, 2), 16);
-                char character = line.charAt(3);
-                INT_TO_CHAR_MAP.put(position, character);
-                CHAR_TO_INT_MAP.put(character, position);
+        if(is == null) {
+            System.out.println("[FFXCharset] Couldn't load encoding table.");
+        } else {
+            try (Scanner scanner = new Scanner(is)) {
+                while (scanner.hasNextLine()) {
+                    String line = scanner.nextLine();
+                    int position = Integer.parseInt(line.substring(0, 2), 16);
+                    char character = line.charAt(3);
+                    INT_TO_CHAR_MAP.put(position, character);
+                    CHAR_TO_INT_MAP.put(character, position);
+                }
             }
         }
     }

@@ -1,13 +1,12 @@
 package blue.golem.charsets;
 
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class CharsetTest
 {
